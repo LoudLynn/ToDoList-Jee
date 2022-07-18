@@ -10,12 +10,63 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 	
-<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="css/style.css"/>
 
 <link rel="stylesheet"
 	href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
 </head>
+
+<body>
+	<div class="main" style=" background: #f8f8f8; padding: 50px 0;">
+
+		<section class="sign-in">
+			<div class="container">
+				<div class="signin-content">
+					<div class="signin-image">
+						<figure>
+							<img src="signin-image.png" alt="image"></img>
+						</figure>
+					</div>
+					
+					<div class="signin-form">
+						<h2 class="form-title">Login Form</h2>
+
+						<form action="<%=request.getContextPath()%>/login" method="post"
+							class="register-form" id="login-form">
+
+							<div class="form-group">
+								<label for="username"> <i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" class="form-control" id="username"
+									placeholder="User Name" name="username" required>
+							</div>
+
+							<div class="form-group">
+								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
+									type="password" class="form-control" id="password"
+									placeholder="Password" name="password" required>
+							</div>
+
+
+							<div class="form-group form-button">
+								<input type="submit" name="signin" id="signin"
+									class="form-submit" value="Log in" />
+							</div>
+							<div>
+														   <p>You are not a member ?</p>
+                               <a href="<%= request.getContextPath() %>/Register" class="nav-link">Sign up</a>
+
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+</body>
 <style>
 body {
   font-size: 13px;
@@ -109,54 +160,4 @@ h2 {
 </style>
 
 
-<body>
-	<div class="main" style=" background: #f8f8f8; padding: 50px 0;">
-
-		<section class="sign-in">
-			<div class="container">
-				<div class="signin-content">
-					<div class="signin-image">
-						<figure>
-							<img src="../images/Checklist.png" alt="sing in image"></img>
-						</figure>
-					</div>
-					
-					<div class="signin-form">
-						<h2 class="form-title">Login Form</h2>
-
-						<form action="<%=request.getContextPath()%>/login" method="post"
-							class="register-form" id="login-form">
-
-							<div class="form-group">
-								<label for="username"> <i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" class="form-control" id="username"
-									placeholder="User Name" name="username" required>
-							</div>
-
-							<div class="form-group">
-								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" class="form-control" id="password"
-									placeholder="Password" name="password" required>
-							</div>
-
-
-							<div class="form-group form-button">
-								<input type="submit" name="signin" id="signin"
-									class="form-submit" value="Log in" />
-							</div>
-							<div>
-														   <p>You are not a member ?</p>
-                               <a href="Register/register.jsp">Sign up</a>
-
-							</div>
-						</form>
-
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-	<jsp:include page="../HomePage/PageFooter.jsp"></jsp:include>
-</body>
 </html>

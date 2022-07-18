@@ -9,7 +9,7 @@ public interface TaskDao {
 
 	void insertTask(Task task) throws SQLException;
 
-	Task selectTask(int taskId);
+	Task selectTask(int Id);
 
 	List<Task> selectAllTasks();
 

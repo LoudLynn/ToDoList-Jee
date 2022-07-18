@@ -1,6 +1,7 @@
 package Servlets;
 
 import java.io.IOException; 
+
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -60,6 +61,9 @@ public class TaskController extends HttpServlet {
 			case "/list":
 				listTask(request, response);
 				break;
+			case "/home":
+				homePage(request, response);
+				break;	
 			default:
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Login/login.jsp");
 				dispatcher.forward(request, response);
@@ -86,7 +90,7 @@ public class TaskController extends HttpServlet {
 
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("idTask"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		Task existingTask = taskDAO.selectTask(id);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Task/TaskForm.jsp");
 		request.setAttribute("task", existingTask);
@@ -106,7 +110,7 @@ public class TaskController extends HttpServlet {
 	}
 
 	private void updateTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		int id = Integer.parseInt(request.getParameter("IdTask"));
+		int id = Integer.parseInt(request.getParameter("idTask"));
 		
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
@@ -122,8 +126,24 @@ public class TaskController extends HttpServlet {
 	}
 
 	private void deleteTask(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		int id = Integer.parseInt(request.getParameter("idTask"));
-		taskDAO.deleteTask(id);
+		           
+		            String id = request.getParameter("id");
+		            if(null != id && !("".equals(id))) {
+		                try {
+		                    int number = Integer.parseInt(id.trim());
+		                    taskDAO.deleteTask(number);
+		                }
+		                catch(NumberFormatException e) {
+		                    e.printStackTrace();
+		                }
+		            }
+		     
+		
 		response.sendRedirect("list");
+	}
+	private void homePage(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage/Home.jsp");
+		dispatcher.forward(request, response);
 	}
 }

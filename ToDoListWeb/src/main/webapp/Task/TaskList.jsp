@@ -14,25 +14,7 @@
 
 </head>
 <body >
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: #3A597A">
-			<div>
-				<h4>My List To Do</h4>
-			</div>
-
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link">Tasks</a></li>
-			</ul>
-
-			<ul class="navbar-nav navbar-collapse justify-content-end">
-				<li><a href="<%=request.getContextPath()%>/logout"
-					class="nav-link">Logout</a></li>
-				
-			</ul>
-		</nav>
-	</header>
+<jsp:include page="../HomePage/PageHeader.jsp"></jsp:include>
 
 	<div class="row">
 
@@ -45,14 +27,14 @@
 					class="btn btn-success">Add Task</a>
 			</div>
 			<br>
-			<table class="table table-bordered">
+			<table class="table table-hover table-bordered">
 				<thead>
 					<tr>
-						<th>Title</th>
-						<th>Deadline</th>
-						<th>Status</th>
-						<th>Category</th>
-						<th>Actions</th>
+						<th  scope="col">Title</th>
+						<th scope="col">Deadline</th>
+						<th scope="col">Status</th>
+						<th scope="col">Category</th>
+						<th scope="col">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,8 +46,8 @@
 							<td><c:out value="${task.status}" /></td>
                             <td><c:out value="${task.category}" /></td>
 							<td><a href="edit?id=<c:out value='${task.idTask}' />">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?id=<c:out value='${task.idTask}' />">Delete</a></td>
+								&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="delete?id=<c:out value='${task.idTask}'/>">Delete</a></td>
 
 						</tr>
 					</c:forEach>

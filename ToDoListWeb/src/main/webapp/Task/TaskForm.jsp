@@ -15,25 +15,7 @@
 
 </head>
 <body style="background-color: #DAE1E7">
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: #3A597A">
-			<div>
-				<a href="https://www.javaguides.net" class="navbar-brand"> My
-					list To Do</a>
-			</div>
-
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link">Tasks</a></li>
-			</ul>
-
-			<ul class="navbar-nav navbar-collapse justify-content-end">
-				<li><a href="<%=request.getContextPath()%>/logout"
-					class="nav-link">Logout</a></li>
-			</ul>
-		</nav>
-	</header>
+	<jsp:include page="../HomePage/PageHeader.jsp"></jsp:include>
 	<div class="container col-md-5">
 		<div class="card">
 			<div class="card-body">
@@ -61,14 +43,17 @@
 				</c:if>
 
 				<fieldset class="form-group">
-					<label>Task Title</label> <input type="text"
-						value="<c:out value='${task.Title}' />" class="form-control"
+					<label>Task Title</label> 
+					
+					<input type="text"
+						value="<c:out value='${task.title}' />" class="form-control"
 						name="title" required="required" minlength="5">
+						
 				</fieldset>
 
 				<fieldset class="form-group">
 					<label>Task Description</label> <input type="text"
-						value="<c:out value='${task.Description}' />" class="form-control"
+						value="<c:out value='${task.description}' />" class="form-control"
 						name="description" minlength="5">
 				</fieldset>
 
@@ -84,7 +69,7 @@
 				<fieldset class="form-group">
 					<label>Task Deadline</label> 
 					<input type="date"
-						value="<c:out value='${task.Deadline}' />" class="form-control"
+						value="<c:out value='${task.deadline}' />" class="form-control"
 						name="deadline" required="required">
 				</fieldset>
 				<fieldset class="form-group">

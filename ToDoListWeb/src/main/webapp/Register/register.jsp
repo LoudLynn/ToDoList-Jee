@@ -11,6 +11,63 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 </head>
+
+
+<body>
+	<div class="main">
+
+		<!-- Sign up form -->
+		<section class="signup">
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<h2>User Register Form</h2>
+						<div class="col-md-6 col-md-offset-3">
+							<%-- <div class="alert alert-success center" role="alert">
+								<p>${NOTIFICATION}</p>
+							</div> --%>
+
+							<form action="<%=request.getContextPath()%>/Register"
+								method="post" class="register-form" id="register-form">
+
+								<div class="form-group">
+									<label for="firstname"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input type="text"
+										class="form-control" id="uname" placeholder="First Name"
+										name="firstName" required>
+								</div>
+
+								<div class="form-group">
+									<label for="uname"><i class="zmdi"></i></label> <input type="text"
+										class="form-control" id="uname" placeholder="last Name"
+										name="lastName" required>
+								</div>
+
+								<div class="form-group">
+									<label for="uname"><i class="zmdi"></i></label> <input type="text"
+										class="form-control" id="username" placeholder="User Name"
+										name="username" required>
+								</div>
+
+								<div class="form-group">
+									<label for="uname"><i class="zmdi"></i></label> <input type="password"
+										class="form-control" id="password" placeholder="Password"
+										name="password" required>
+								</div>
+								
+                                <div class="form-group">
+                            		<button type="submit" class="btn btn-primary">Sign up</button>
+                                
+                                </div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
 <style>
 body {
   font-size: 13px;
@@ -102,60 +159,4 @@ h2 {
 .register-form {
   width: 100%; }
 </style>
-
-<body>
-	<div class="main">
-
-		<!-- Sign up form -->
-		<section class="signup">
-			<div class="container">
-				<div class="signup-content">
-					<div class="signup-form">
-						<h2>User Register Form</h2>
-						<div class="col-md-6 col-md-offset-3">
-							<div class="alert alert-success center" role="alert">
-								<p>${NOTIFICATION}</p>
-							</div>
-
-							<form action="<%=request.getContextPath()%>/Register"
-								method="post" class="register-form"
-							id="register-form">
-
-								<div class="form-group">
-									<label for="firstname"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input type="text"
-										class="form-control" id="uname" placeholder="First Name"
-										name="firstName" required>
-								</div>
-
-								<div class="form-group">
-									<label for="uname"><i class="zmdi"></i></label> <input type="text"
-										class="form-control" id="uname" placeholder="last Name"
-										name="lastName" required>
-								</div>
-
-								<div class="form-group">
-									<label for="uname"><i class="zmdi"></i></label> <input type="text"
-										class="form-control" id="username" placeholder="User Name"
-										name="username" required>
-								</div>
-
-								<div class="form-group">
-									<label for="uname"><i class="zmdi"></i></label> <input type="password"
-										class="form-control" id="password" placeholder="Password"
-										name="password" required>
-								</div>
-
-								<button type="submit" class="btn btn-primary">Sign up</button>
-
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-
-	<jsp:include page="../HomePage/PageFooter.jsp"></jsp:include>
-</body>
 </html>

@@ -21,8 +21,8 @@ public class TaskDaoImpl implements TaskDao{
 
 	private static final String SelectById = "select idtask,title,description,deadline,status,category from task where idtask =?";
 	private static final String SelectAll= "select * from task";
-	private static final String DeleteById = "delete from task where idtask = ?;";
-	private static final String Update = "update task set title = ?, description =?, deadline =?, status = ?, category= ? where idtask = ?;";
+	private static final String DeleteById = "delete from task where idtask = ?";
+	private static final String Update = "update task set title = ?, description =?, deadline =?, status = ?, category= ? where idtask = ?";
 
 	
 	@Override
@@ -42,13 +42,13 @@ public class TaskDaoImpl implements TaskDao{
 	}
 
 	@Override
-	public Task selectTask(int taskId) {
+	public Task selectTask(int Id) {
 		Task task = null;
 	
 		try (Connection connection = Connect.getConnection();
 			
 				PreparedStatement preparedStatement = connection.prepareStatement(SelectById);) {
-			preparedStatement.setInt(1, taskId);
+			preparedStatement.setInt(1, Id);
 		
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -76,8 +76,8 @@ public class TaskDaoImpl implements TaskDao{
 
 		try (Connection connection = Connect.getConnection();
 
-				PreparedStatement preparedStatement = connection.prepareStatement(SelectAll);) {
-			System.out.println(preparedStatement);
+			PreparedStatement preparedStatement = connection.prepareStatement(SelectAll);) {
+			//System.out.println(preparedStatement);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 
